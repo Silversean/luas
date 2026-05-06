@@ -41,15 +41,19 @@ function get_sets()
 
     -- Load and initialize the include file.
     include('Mote-Include.lua')
-
+	
+	--[[pcall(function()]]
+    include('lagguard.lua')
+	include('tables.lua')
+	include('movement.lua')
+	end
 
 
 	
 
-end
 
-function job_setup()
-setupTextWindow(1700, 1150)
+
+
 
 
 --[[These numbers determine where your table will show update
@@ -87,8 +91,7 @@ how to make this context box draggable.]]
 
     }
 
-	include('Mote-TreasureHunter')
-end
+
 
 
 
@@ -106,7 +109,7 @@ function user_setup()
 	state.OffenseMode:options('Normal', 'DT', 'Shield', 'ShieldTP', 'Enspell', 'NoDW', 'TH')
 	state.DamageMode = M('Unlocked','Shikargar','Crocea', 'Savage', 'Excalibur', 'Blunt', 'Aeolian','Lv.1 Dagger')
     state.WeaponLockMode = M('Unlocked', 'Locked')
-    state.IdleMode:options('Normal','Town','DT')
+    state.IdleMode:options('Normal','Town','DT', 'Shield', 'Aminon')
 	state.CastingMode:options('Normal', 'Burst', 'SIRD', 'Occult')
 	state.Enfeeb = M('Potency', 'Accuracy', 'Skill')
 	state.ZoneRing = M('None','Warp', 'Holla', 'Dem', 'Mea')
@@ -216,8 +219,7 @@ function init_gear_sets()
 		sub="Daybreak",}
 	
 	sets.Shikargar = {
-		main={ name="Shikargar", augments={'DMG:+1','Delay:+4','Add.eff.:Lowers mag.def.+16',}},
-		sub="Daybreak",}
+		main="Nitric baselard",}
 		
 	
 	sets.Savage = {    
@@ -287,7 +289,7 @@ function init_gear_sets()
     right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
     left_ring="Kishar Ring",
     right_ring="Weather. Ring",
-    back={ name="Sucellos's Cape", augments={'Mag. Acc+18 /Mag. Dmg.+18','"Fast Cast"+10',}},
+	back="Fi Follet Cape +1",
 }
 	
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
@@ -320,7 +322,7 @@ function init_gear_sets()
     right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
     left_ring="Weather. Ring",
     right_ring="Kishar Ring",
-    back={ name="Sucellos's Cape", augments={'Mag. Acc+18 /Mag. Dmg.+18','"Fast Cast"+10',}},
+	back="Fi Follet Cape +1",
 }
 		
 	--[[this set needs to be a clone of sets.precast.FC.Impact
@@ -345,7 +347,7 @@ function init_gear_sets()
 	right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+13','Mag. Acc.+13','"Dbl.Atk."+4',}},
     left_ring="Weather. Ring",
     right_ring="Kishar Ring",
-    back={ name="Sucellos's Cape", augments={'Mag. Acc+18 /Mag. Dmg.+18','"Fast Cast"+10',}},
+	back="Fi Follet Cape +1",
 }
 		
 	sets.precast.FC.ImpactQC = {
@@ -407,7 +409,7 @@ function init_gear_sets()
     body="Rosette Jaseran +1",
     hands={ name="Chironic Gloves", augments={'"Resist Silence"+10','"Mag.Atk.Bns."+7','Chance of successful block +7',}},
     legs="Bunzi's Pants",
-    feet="Atrophy Boots +3",
+    feet="Atrophy Boots +4",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Othila Sash",
     left_ear="Thureous Earring",
@@ -576,7 +578,7 @@ function init_gear_sets()
     sub="Ammurapi Shield",
     ammo="Sapience Orb",
     head="Amalric Coif +1",
-    body="Atrophy Tabard +3",
+    body="Atrophy Tabard +4",
     hands={ name="Viti. Gloves +4", augments={'Enhancing Magic duration',}},
     legs="Leth. Fuseau +3",
     feet="Leth. Houseaux +3",
@@ -652,7 +654,7 @@ function init_gear_sets()
 		sub="Ammurapi Shield",
 		ammo="Regal Gem",
 		head={ name="Chironic Hat", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+2','MND+5','Mag. Acc.+15','"Mag.Atk.Bns."+2',}},
-		body="Atrophy Tabard +3",
+		body="Atrophy Tabard +4",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
 		feet={ name="Vitiation Boots +4", augments={'Enhances "Paralyze II" effect',}},
@@ -674,7 +676,7 @@ function init_gear_sets()
     sub="Ammurapi Shield",
     range="Ullr",
     head="Atro. Chapeau +2",
-    body="Atrophy Tabard +3",
+    body="Atrophy Tabard +4",
     hands="Leth. Ganth. +3",
     legs="Atrophy Tights +2",
     feet="Viti. Boots +4",
@@ -698,7 +700,7 @@ function init_gear_sets()
     sub="Ammurapi Shield",
     ammo="Regal Gem",
     head={ name="Viti. Chapeau +4", augments={'Enfeebling Magic duration','Magic Accuracy',}},
-    body="Atrophy Tabard +3",
+    body="Atrophy Tabard +4",
     hands="Leth. Ganth. +3",
     legs="Leth. Fuseau +3",
     feet={ name="Vitiation Boots +4", augments={'Immunobreak Chance',}},
@@ -963,7 +965,7 @@ sets.midcast['Elemental Magic'].Occult = {
     right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Dbl.Atk."+5',}},
     left_ring="Lebeche Ring",
     right_ring="Weather. Ring",
-    back={ name="Sucellos's Cape", augments={'Mag. Acc+18 /Mag. Dmg.+18','"Fast Cast"+10',}},
+	back="Fi Follet Cape +1",
 }
 		
 	sets.midcast['Blue Magic'] = {}
@@ -989,7 +991,7 @@ sets.midcast['Elemental Magic'].Occult = {
 		sub="Ammurapi Shield",
 		ammo="Regal Gem",
 		head="Malignance Chapeau",
-		body="Atrophy Tabard +3",
+		body="Atrophy Tabard +4",
 		hands="Lethargy Gantherots +3",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
@@ -1006,7 +1008,7 @@ sets.midcast['Elemental Magic'].Occult = {
 		sub="Ammurapi Shield",
 		ammo="Regal Gem",
 		head="Malignance Chapeau",
-		body="Atrophy Tabard +3",
+		body="Atrophy Tabard +4",
 		hands="Lethargy Gantherots +3",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
@@ -1023,7 +1025,7 @@ sets.midcast['Elemental Magic'].Occult = {
 		sub="Ammurapi Shield",
 		ammo="Regal Gem",
 		head="Malignance Chapeau",
-		body="Atrophy Tabard +3",
+		body="Atrophy Tabard +4",
 		hands="Lethargy Gantherots +3",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
@@ -1040,7 +1042,7 @@ sets.midcast['Elemental Magic'].Occult = {
 		sub="Ammurapi Shield",
 		ammo="Regal Gem",
 		head="Malignance Chapeau",
-		body="Atrophy Tabard +3",
+		body="Atrophy Tabard +4",
 		hands="Lethargy Gantherots +3",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
@@ -1189,56 +1191,58 @@ sets.midcast['Elemental Magic'].Occult = {
 		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},}
 
     sets.precast.WS['Sanguine Blade'] = {
-		main={ name="Crocea Mors", augments={'Path: C',}},
-		sub="Ammurapi Shield",
-		ammo="Sroda Tathlum",
-		head="Pixie Hairpin +1",
-		body={ name="Nyame Mail", augments={'Path: B',}},
-		hands="Jhakri Cuffs +2",
-		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet="Leth. Houseaux +3",
-		neck="Sibyl Scarf",
-		waist="Orpheus's Sash",
-		left_ear="Malignance Earring",
-		right_ear="Regal Earring",
-		left_ring="Epaminondas's Ring",
-		right_ring="Archon Ring",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Ammurapi Shield",
+    ammo="Sroda Tathlum",
+    head="Pixie Hairpin +1",
+    body="Nyame Mail",
+    hands="Jhakri Cuffs +2",
+    legs="Nyame Flanchard",
+    feet="Leth. Houseaux +3",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Malignance Earring",
+    right_ear="Regal Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Archon Ring",
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Damage taken-5%',}},
+}
 		
 	sets.precast.WS['Sanguine Blade'].MAB = {
-		main={ name="Crocea Mors", augments={'Path: C',}},
-		sub="Ammurapi Shield",
-		ammo="Sroda Tathlum",
-		head="Pixie Hairpin +1",
-		body={ name="Nyame Mail", augments={'Path: B',}},
-		hands="Jhakri Cuffs +2",
-		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet="Leth. Houseaux +3",
-		neck="Sibyl Scarf",
-		waist="Orpheus's Sash",
-		left_ear="Malignance Earring",
-		right_ear="Regal Earring",
-		left_ring="Epaminondas's Ring",
-		right_ring="Archon Ring",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Damage taken-5%',}},
-	}
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Ammurapi Shield",
+    ammo="Sroda Tathlum",
+    head="Pixie Hairpin +1",
+    body="Nyame Mail",
+    hands="Jhakri Cuffs +2",
+    legs="Nyame Flanchard",
+    feet="Leth. Houseaux +3",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Malignance Earring",
+    right_ear="Regal Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Archon Ring",
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Damage taken-5%',}},
+}
 		
 	sets.precast.WS['Red Lotus Blade'] = {
-		ammo="Sroda Tathlum",
-		head="Lethargy Chappel +3",
-		body="Lethargy Sayon +3",
-		hands="Nyame Gauntlets",
-		legs={ name="Merlinic Shalwar", augments={'"Mag.Atk.Bns."+25','Weapon skill damage +4%','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
-		feet="Lethargy Houseaux +3",
-		neck="Fotia Gorget",
-		waist="Orpheus's Sash",
-		left_ear="Moonshade Earring",
-		right_ear="Malignance Earring",
-		left_ring="Epaminondas's Ring",
-		right_ring="Shiva Ring +1",
-		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}},
-	}
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Ammurapi Shield",
+    ammo="Sroda Tathlum",
+    head="Leth. Chappel +3",
+    body="Nyame Mail",
+    hands="Jhakri Cuffs +2",
+    legs="Nyame Flanchard",
+    feet="Leth. Houseaux +3",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Malignance Earring",
+    right_ear="Regal Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Freke Ring",
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Damage taken-5%',}},
+}
 	
 	sets.precast.WS['Shining Strike'] = {
 		ammo="Sroda Tathlum",
@@ -1256,18 +1260,21 @@ sets.midcast['Elemental Magic'].Occult = {
 		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}},
 	}
 	
-	sets.precast.WS['Seraph Blade'] = {ammo="Sroda Tathlum",
+	sets.precast.WS['Seraph Blade'] = {
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Ammurapi Shield",
+    ammo="Sroda Tathlum",
     head="Leth. Chappel +3",
-    body={ name="Nyame Mail", augments={'Path: B',}},
-    hands="Jhakri Cuffs +2",
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    body="Nyame Mail",
+    hands="Leth. Ganth. +3",
+    legs="Nyame Flanchard",
     feet="Leth. Houseaux +3",
     neck="Fotia Gorget",
     waist="Orpheus's Sash",
-    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    right_ear="Ishvara Earring",
-    left_ring="Epanimodas's Ring",
-    right_ring="Weather. Ring",
+    left_ear="Moonshade Earring",
+    right_ear="Malignance Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Freke Ring",
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 	
@@ -1350,8 +1357,6 @@ sets.midcast['Elemental Magic'].Occult = {
 		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},}
 		
 	sets.precast.WS['Black Halo'] =  {
-    main="Maxentius",
-    sub="Archduke's Shield",
     ammo="Crepuscular Pebble",
     head="Viti. Chapeau +4",
     body="Nyame Mail",
@@ -1362,8 +1367,8 @@ sets.midcast['Elemental Magic'].Occult = {
     waist="Sailfi Belt +1",
     left_ear="Moonshade Earring",
     right_ear="Regal Earring",
-    left_ring="Sroda Ring",
-    right_ring="Ephramad's Ring",
+    left_ring="Ephramad's Ring",
+    right_ring="Sroda Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	
@@ -1535,19 +1540,19 @@ sets.midcast['Elemental Magic'].Occult = {
 	sets.latent_refresh = {waist="Fucho-no-obi"}	
 		
 	sets.idle.Shield = {
-    main={ name="Excalibur", augments={'Path: A',}},
+    main="Excalibur",
     sub="Sacro Bulwark",
     ammo="Staunch Tathlum +1",
     head={ name="Merlinic Hood", augments={'Enmity+1','INT+5','Chance of successful block +4','Accuracy+18 Attack+18',}},
     body="Adamantite Armor",
     hands={ name="Chironic Gloves", augments={'"Resist Silence"+10','"Mag.Atk.Bns."+7','Chance of successful block +7',}},
-    legs="Bunzi's Pants",
-    feet="Atro. Boots +3",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    legs="Nyame Flanchard",
+    feet="Atro. Boots +4",
+    neck="Loricate Torque +1",
+    waist="Plat. Mog. Belt",
+    left_ear="Odnowa Earring +1",
     right_ear="Thureous Earring",
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    left_ring="Gelatinous Ring +1",
     right_ring="Chirich Ring +1",
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Chance of successful block +5',}},
 }
@@ -1578,7 +1583,7 @@ sets.idle.DT = {
     body="Adamantite Armor",
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Atro. Boots +3",
+    feet="Atro. Boots +4",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1596,7 +1601,7 @@ sets.idle.DT = {
     body="Rosette Jaseran +1",
     hands={ name="Chironic Gloves", augments={'"Resist Silence"+10','"Mag.Atk.Bns."+7','Chance of successful block +7',}},
     legs="Bunzi's Pants",
-    feet="Atrophy Boots +3",
+    feet="Atrophy Boots +4",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Othila Sash",
     left_ear="Thureous Earring",
@@ -1607,10 +1612,23 @@ sets.idle.DT = {
 }
 	
 	
-	
-	
-	
-	
+	sets.idle.Aminon = {
+    main="Maxentius",
+    sub="Archduke's Shield",
+    ammo="Aurgelmir Orb",
+    head="Null Masque",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Rep. Plat. Medal",
+    waist="Flume Belt +1",
+    left_ear="Alabaster Earring",
+    right_ear="Dedition Earring",
+    left_ring="Roller's Ring",
+    right_ring="Chirich Ring +1",
+    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Chance of successful block +5',}},
+}
 	
 	
 	sets.idle.TH = {
@@ -1652,7 +1670,6 @@ sets.idle.DT = {
 	sets.Enspell = set_combine(sets.engaged, {
 		ammo="Hasty Pinion +1",
 		hands="Ayanmo Manopolas +2",
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		waist="Orpheus's Sash",})
 		
 	sets.Enspell.Obi = set_combine(sets.engaged, {
@@ -1674,36 +1691,36 @@ sets.idle.DT = {
     sets.engaged = {
     main={ name="Shikargar", augments={'DMG:+1','Delay:+4','Add.eff.:Lowers mag.def.+16',}},
     sub="Daybreak",
-    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-    head="Malignance Chapeau",
+    ammo="Coiste Bodhar",
+    head="Bunzi's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Malignance Boots",
+    feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
     neck="Anu Torque",
     waist="Reiki Yotai",
     left_ear="Eabani Earring",
-    right_ear="Suppanomimi",
-    left_ring="Defending Ring",
-    right_ring="Haverton Ring",
-    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
+    right_ear="Sherida Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back="Null Shawl",
 }
 		
 	sets.engaged.DT = {
     main={ name="Shikargar", augments={'DMG:+1','Delay:+4','Add.eff.:Lowers mag.def.+16',}},
     sub="Daybreak",
-    ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
+    ammo="Coiste Bodhar",
+    head="Bunzi's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Reiki Yotai",
-    left_ear="Eabani Earring",
-    right_ear="Suppanomimi",
+    feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
+    neck="Anu Torque",
+    waist="Windbuffet Belt +1",
+    left_ear="Dedition Earring",
+    right_ear="Sherida Earring",
     left_ring="Murky Ring",
-    right_ring="Haverton Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 }
 		
@@ -1711,19 +1728,19 @@ sets.idle.DT = {
 		
 
 	sets.engaged.Shield = {
-    main={ name="Excalibur", augments={'Path: A',}},
+    main="Excalibur",
     sub="Sacro Bulwark",
     ammo="Staunch Tathlum +1",
     head={ name="Merlinic Hood", augments={'Enmity+1','INT+5','Chance of successful block +4','Accuracy+18 Attack+18',}},
     body="Adamantite Armor",
     hands={ name="Chironic Gloves", augments={'"Resist Silence"+10','"Mag.Atk.Bns."+7','Chance of successful block +7',}},
-    legs="Bunzi's Pants",
-    feet="Atro. Boots +3",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    legs="Nyame Flanchard",
+    feet="Atro. Boots +4",
+    neck="Loricate Torque +1",
+    waist="Plat. Mog. Belt",
+    left_ear="Odnowa Earring +1",
     right_ear="Thureous Earring",
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    left_ring="Gelatinous Ring +1",
     right_ring="Chirich Ring +1",
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Chance of successful block +5',}},
 }
@@ -1787,22 +1804,23 @@ sets.idle.DT = {
 	
 	sets.engaged.NoDW = {
     main={ name="Crocea Mors", augments={'Path: C',}},
-    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-    head={ name="Nyame Helm", augments={'Path: B',}},
+    sub="Sacro Bulwark",
+    ammo="Aurgelmir Orb",
+    head="Bunzi's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    feet="Nyame Sollerets",
     neck="Anu Torque",
     waist="Windbuffet Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
+    right_ear="Dedition Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Chance of successful block +5',}},
+    back="Null Shawl",
 }
 	
-	sets.engaged.HasteCap = {
+	--[[sets.engaged.HasteCap = {
 		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
@@ -1815,9 +1833,9 @@ sets.idle.DT = {
 		right_ear="Crepuscular Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},}
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},}]]
 		
-	sets.engaged.HasteCap.DT = {    
+	--[[sets.engaged.HasteCap.DT = {    
 		main="Naegling",
 		sub="Ammurapi Shield",
 		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
@@ -1834,7 +1852,8 @@ sets.idle.DT = {
 		right_ring="Defending Ring",
 		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
 		
-	sets.engaged.Savage_TP_Cape = {back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},}
+	sets.engaged.Savage_TP_Cape = {back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+	]]
 	
 	
 end
@@ -2219,17 +2238,7 @@ end
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
 
-function job_buff_change(buff, gain)
-	if (not midaction() and not state.Moving.Value == 'true') and (buff and gain) or (buff and not gain) then
-		send_command('gs c update')
-	end
 
-	--[[if state.Moving.value == 'false' then
-		if not buffactive[580] then
-		send_command('send Captainrayfus /ma "Indi-Haste" <me>')
-		end
-	end]]
-end
 
 
 
@@ -2243,11 +2252,11 @@ end
 function customize_melee_set(meleeSet)
 
 
-    if (buffactive['Embrava'] or buffactive.march == 1 or buffactive[580] or buffactive['Mighty Guard']) and state.OffenseMode.Value == 'DT' then
+    --[[if (buffactive['Embrava'] or buffactive.march == 1 or buffactive[580] or buffactive['Mighty Guard']) and state.OffenseMode.Value == 'DT' then
 		meleeSet = set_combine(meleeSet, sets.engaged.HasteCap, sets.engaged.HasteCap.DT)
 	elseif (buffactive['Embrava'] or buffactive.march == 1 or buffactive[580] or buffactive['Mighty Guard']) and state.OffenseMode.Value ~= 'Shield' then
         meleeSet = set_combine(meleeSet, sets.engaged.HasteCap)
-    end
+    end]]
 	
 	if state.ZoneRing.value == 'Warp' then
 		meleeSet = set_combine(meleeSet, {right_ring="Warp Ring"})
@@ -2305,7 +2314,9 @@ function customize_melee_set(meleeSet)
 		meleeSet = set_combine(meleeSet, sets.Lv1Dagger)
 	end
 
-
+if state.Moving and state.Moving.current == 'true' then
+    meleeSet = set_combine(meleeSet, sets.MoveSpeed)
+end
 	return meleeSet
 	
 end
@@ -2325,6 +2336,8 @@ function customize_idle_set(idleSet)
 		idleSet = sets.idle.DT
 	elseif state.IdleMode.value == 'SIRD' then
 		idleSet = sets.idle.SIRD
+	elseif state.IdleMode.value == 'Aminon' then
+		idleSet = sets.idle.Aminon
     end
 	
 	if state.Kiting.value == 'true' and state.IdleMode.value == 'Normal' then 
@@ -2364,17 +2377,15 @@ function customize_idle_set(idleSet)
 		idleSet = set_combine(idleSet, sets.Lv1Dagger)
 		return idleSet
 	end
-
+	
 		if state.HippoMode.value == 'On' then 
 			idleSet = sets.Hippomenes
 		return idleSet
 	end
 
-	
-	if state.Moving.value == 'true' then
-		idleSet = set_combine(idleSet, sets.MoveSpeed)
-	end
-	
+if state.Moving and state.Moving.current == 'true' then
+    idleSet = set_combine(idleSet, sets.MoveSpeed)
+end
 	
 	
     return idleSet
@@ -2395,82 +2406,9 @@ windower.register_event('zone change', function()
 	
 end)
 
-mov = {counter=0}
-if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
-    mov.x = windower.ffxi.get_mob_by_index(player.index).x
-    mov.y = windower.ffxi.get_mob_by_index(player.index).y
-    mov.z = windower.ffxi.get_mob_by_index(player.index).z
-end
 
 
-moving = false
-windower.raw_register_event('prerender',function()
-    mov.counter = mov.counter + 1;
-    if mov.counter> 21 then
-        local pl = windower.ffxi.get_mob_by_index(player.index)
-        if pl and pl.x and mov.x and state.EngagedMoving.Value == 'Disabled' then
-			--we want this to return a false value if these conditions were met, but we drew our weapons whilst moving.
-			--we also want this value to become false if we Disable EngagedMovement while engaged.
-			if state.Moving.value == 'true' and player.status == 'Engaged' then
-				state.Moving.value = 'false'
-			end
-			if player.status ~= 'Engaged' then
-				dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
-				if dist > 1 and not moving then
-					state.Moving.value = 'true'
-					send_command('gs c update')
-					if world.area:contains("Adoulin") then
-						send_command('gs equip sets.Adoulin')
-							if state.Following.value == 'Follow' then
-								send_command('send @others /follow Byrne')
-							end
-					elseif state.Following.value == 'Follow' then
-								send_command('send @others /follow Byrne')
-						send_command('gs equip sets.MoveSpeed')
-					else
-						send_command('gs equip sets.MoveSpeed')
-					end
 
-					moving = true
-
-				elseif dist < 1 and moving then
-					state.Moving.value = 'false'
-					if not midaction() then
-						send_command('gs c update')
-					end
-					moving = false
-				end
-			end
-        elseif pl and pl.x and mov.x and state.EngagedMoving.Value == 'Enabled' then
-			dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
-			if dist > 1 and not moving then
-				state.Moving.value = 'true'
-				send_command('gs c update')
-				if world.area:contains("Adoulin") then
-					send_command('gs equip sets.Adoulin')
-				else
-					send_command('gs equip sets.MoveSpeed')
-				end
-
-				moving = true
-
-			elseif dist < 1 and moving then
-				state.Moving.value = 'false'
-				if not midaction() then
-					send_command('gs c update')
-				end
-				moving = false
-			end
-		end
-        if pl and pl.x then
-            mov.x = pl.x
-            mov.y = pl.y
-            mov.z = pl.z
-        end
-        mov.counter = 0
-    end
-	
-end)
 
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.
 
@@ -2506,138 +2444,8 @@ function select_default_macro_book()
         set_macro_page(10, 5)
     end
 end
----------------------------------------------------------------------------------------------------
---This is used to make sure we will attempt to refresh the window every second
---prerender is actually faster than 1 second as it is called every few milliseconds
-time_start = os.time()
-windower.register_event(
-    "prerender",
-    function()
-        --Items we want to check every second
-        if os.time() > time_start then
-            --We want to keep this reset each time we enter so its called every second
-            time_start = os.time()
-
-            --Simply refreshes the window
-            refreshWindow()
-        end
-    end
-)
-
---Window
---Default To Set Up the Text Window
-
--- Place this in the job_function()
--- setupTextWindow(1400, 600)
-
--- You can toggle this with a command to turn the entire window on and off
--- visible = false
-visible = true
-
-function setupTextWindow(pos_x, pos_y)
-    tb_name = "run_gs_helper"
-    bg_visible = true
-    textinbox = " "
-
-    windower.text.create(tb_name)
-    -- table_name, x, y
-    windower.text.set_location(tb_name, pos_x, pos_y)
-    -- transparency, rgb
-    windower.text.set_bg_color(tb_name, 170, 30, 30, 40)
-    windower.text.set_color(tb_name, 255, 255, 161, 61)
-    windower.text.set_font(tb_name, "Trebuchet MS")
-    windower.text.set_font_size(tb_name, 14)
-    windower.text.set_bold(tb_name, true)
-    windower.text.set_italic(tb_name, false)
-    windower.text.set_text(tb_name, textinbox)
-    windower.text.set_bg_visibility(tb_name, bg_visible)
-    windower.text.set_visibility(tb_name, visible)
-end
-
---Hanldles refreshing the current text window
--- refreshWindow() should be called anytime you perform an action that would change what is on the window
-function refreshWindow()
-    textinbox = " " -- This is what gets drawn on the screen at the end
-    textColorNewLine = "\\cr \n" --Placed at the end of a line to end the color and make a new line after
-    textColorEnd = " \\cr" -- Placed at the end of what you are displaying to end the given color
-    textColor = "\\cs(125, 255, 125)" --RGB color setting
-
-    if not visible then --If not 'true' then it will hide the window all together
-        textinbox = ""
-        windower.text.set_text(tb_name, textinbox)
-        return
-    end
-
-    --If you want to Toggle this section uncomment the if and end
-    --You'll need to use a variable like this in user_setup():
-    --state.textHideMode = M(false, "Hide Mode")
-    --then you can toggle it with Mote's
-    -- //gs c toggle textHideMode
-    
-    -- if not state.textHideMode.value then
-	
-		textinbox = textinbox .. drawTitle("  Local Keybinds  ")
-		textinbox = textinbox .. textColor .. "(F8) Equip & Lock Weapons" .. textColorNewLine
-	
-        textinbox = textinbox .. drawTitle("  Current Settings  ") --Draws the title and puts '=', example ====     Mode     ==== around the title passed in
-		
-		textinbox = textinbox .. textColor .. "TP Mode (F9) : " .. tostring(state.OffenseMode.current) .. textColorNewLine
-		textinbox = textinbox .. "\\cs(255, 255, 70)" .. "Damage Mode (F6) : " .. "\\cs(100, 255, 100)" .. tostring(state.DamageMode.current) .. "\\cr \n"
-		textinbox = textinbox .. textColor .. "Casting Mode (CTRL+F9) : " .. tostring(state.CastingMode.current) .. textColorNewLine
-		textinbox = textinbox .. "\\cs(220, 20, 60)" .. "Hippo Mode (CNTRL+INS) : " .. tostring(state.HippoMode.current) .. textColorNewLine
-        textinbox = textinbox .. textColor .. "Idle Mode (F10) : " .. tostring(state.IdleMode.current) .. textColorNewLine
-		
-		if state.Enfeeb.value == 'Potency' then
-			textinbox = textinbox .. textColor .. "Enfeebling Mode (F11) : " .. tostring(state.Enfeeb.current) .. textColorNewLine
-		elseif state.Enfeeb.value == 'Accuracy' then
-			textinbox = textinbox .. textColor .. "Enfeebling Mode (F11) : " .. tostring(state.Enfeeb.current) .. textColorNewLine
-		elseif state.Enfeeb.value == 'Skill' then
-			textinbox = textinbox .. textColor .. "Enfeebling Mode (F11) : " .. "\\cs(255, 75, 75)" .. tostring(state.Enfeeb.current) .. textColorNewLine
-		end
-		
-		if state.WeaponLockMode.value == 'Locked' then
-			textinbox = textinbox .. "\\cs(255, 255, 255)" .. "Lock Mode (F7) : " .. "\\cr" .. "\\cs(255, 75, 75)" .. tostring(state.WeaponLockMode.current) .. textColorNewLine
-		elseif state.WeaponLockMode.value == 'Unlocked' then
-			textinbox = textinbox .. "\\cs(255, 255, 255)" .. "Lock Mode (F7) : " .. "\\cr" .. "\\cs(255, 255, 255)" .. tostring(state.WeaponLockMode.current) .. textColorNewLine
-		end
-       
-		if state.SubtleBlow.value == 'On' then
-			textinbox = textinbox .. "\\cs(255, 255, 255)" .. "Subtle Blow (CNTRL+F7) : " .. "\\cr" .. "\\cs(255, 75, 75)" .. tostring(state.SubtleBlow.current) .. textColorNewLine
-		elseif state.SubtleBlow.value == 'Off' then
-			textinbox = textinbox .. "\\cs(255, 255, 255)" .. "Subtle Blow (CNTRL+F7) : " .. "\\cr" .. "\\cs(255, 255, 255)" .. tostring(state.SubtleBlow.current) .. textColorNewLine
-		end
-		
-		if state.ZoneRing.current == 'Warp' then
-			textinbox = textinbox .. "Zone Ring (F5) : " .. "\\cs(255, 75, 255)" .. tostring(state.ZoneRing.current) .. textColorNewLine
-		elseif state.ZoneRing.current == 'Holla' then
-			textinbox = textinbox .. "Zone Ring (F5) : " .. "\\cs(255, 75, 75)" .. tostring(state.ZoneRing.current) .. textColorNewLine
-		elseif state.ZoneRing.current == 'Dem' then
-			textinbox = textinbox .. "Zone Ring (F5) : " .. "\\cs(0, 175, 255)" .. tostring(state.ZoneRing.current) .. textColorNewLine
-		elseif state.ZoneRing.current == 'Mea' then
-			textinbox = textinbox .. "Zone Ring (F5) : " .. "\\cs(255, 255, 75)" .. tostring(state.ZoneRing.current) .. textColorNewLine
-		elseif state.ZoneRing.current == 'None' then
-			textinbox = textinbox .. "Zone Ring (F5) : " .. "\\cs(255, 255, 255)" .. tostring(state.ZoneRing.current) .. textColorNewLine
-		end
-		if state.Moving.value == 'false' then
-			textinbox = textinbox .. "Player Moving (Auto) : " .. "\\cs(255, 100, 100)" .. tostring(state.Moving.value) .. "\\cr \n"
-		else
-			textinbox = textinbox .. "Player Moving (Auto) : " .. "\\cs(100, 255, 100)" .. tostring(state.Moving.value) .. "\\cr \n"
-		end
-			textinbox = textinbox .. textColor .. "WSMode(Alt+F8) : " .. tostring(state.WSMode.current) .. textColorNewLine
-			
-			textinbox = textinbox .. "\\cs(255, 255, 70)" .. "TreasureHunter Mode : " .. "\\cs(100, 255, 100)" .. tostring(state.TreasureMode.value) .. "\\cr \n"
-
-			
 
 
-    windower.text.set_text(tb_name, textinbox)
-end
-
-
---Creates the Title for a section in the Text Screen
-function drawTitle(title)
-    return "\\cs(200, 222, 255)" .. pad(tostring(title), 6, ":") .. "\\cr \n"
-end
 
 --Pads a given chara on both sides (centering with left justification)
 function pad(s, l, c)
@@ -2682,3 +2490,106 @@ organizer_items = {
     prism2="Prism Powder",
 	rr="Airmid's Gorget",
     }
+
+
+pcall(function()
+    if shared_job_table then
+        shared_job_table.render(true)
+    end
+end)
+
+pcall(function()
+    if not lagguard then return end
+
+    local ui_interval = 0.25
+
+    if type(update_text) == 'function' then
+        update_text = lagguard.wrap('update_text', ui_interval, update_text)
+    end
+
+    if type(ui_render) == 'function' then
+        ui_render = lagguard.wrap('ui_render', ui_interval, ui_render)
+    end
+
+    if type(refreshwindow) == 'function' then
+        refreshwindow = lagguard.wrap('refreshwindow', ui_interval, refreshwindow)
+    end
+
+    if type(display_box) == 'function' then
+        display_box = lagguard.wrap('display_box', ui_interval, display_box)
+    end
+
+    if type(update_display) == 'function' then
+        update_display = lagguard.wrap('update_display', ui_interval, update_display)
+    end
+
+    if type(update_hud) == 'function' then
+        update_hud = lagguard.wrap('update_hud', ui_interval, update_hud)
+    end
+end)
+
+local function state_value(name)
+    if not state or not state[name] then return '' end
+
+    if state[name].value ~= nil then
+        return state[name].value
+    elseif state[name].current ~= nil then
+        return state[name].current
+    else
+        return tostring(state[name])
+    end
+end
+
+function get_state_value_for_table(name)
+    if not state or not state[name] then
+        return ''
+    end
+
+    if state[name].current ~= nil then
+        return tostring(state[name].current)
+    end
+
+    if state[name].value ~= nil then
+        return tostring(state[name].value)
+    end
+
+    return tostring(state[name])
+end
+
+function get_state_value_for_table(name)
+    if not state or not state[name] then
+        return ''
+    end
+
+    if state[name].current ~= nil then
+        return tostring(state[name].current)
+    end
+
+    if state[name].value ~= nil then
+        return tostring(state[name].value)
+    end
+
+    return tostring(state[name])
+end
+
+job_table_config = {
+    title = 'RDM GearSwap',
+    rows = {
+        {'F10 Idle Mode', function() return get_state_value_for_table('IdleMode') end},
+        {'F9 Offense', function() return get_state_value_for_table('OffenseMode') end},
+        {'^F11 Casting', function() return get_state_value_for_table('CastingMode') end},
+        {'F6 Damage', function() return get_state_value_for_table('DamageMode') end},
+        {'F7 Weapon Lock', function() return get_state_value_for_table('WeaponLockMode') end},
+        {'F11 Enfeeb', function() return get_state_value_for_table('Enfeeb') end},
+        {'F8 WS Mode', function() return get_state_value_for_table('WSMode') end},
+        {'^F9 Engaged Move', function() return get_state_value_for_table('EngagedMoving') end},
+        {'@F9 Kiting', function() return get_state_value_for_table('Kiting') end},
+        {'Moving', function() return get_state_value_for_table('Moving') end},
+    }
+}
+
+if shared_job_table then
+    shared_job_table.refresh_interval = 0.50
+    shared_job_table.setup()
+    shared_job_table.render(true)
+end
