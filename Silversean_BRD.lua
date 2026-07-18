@@ -23,7 +23,7 @@
 	'Terpander', and info.ExtraSongs to 1.
 --]]
 
--- Initialization function for this job file.
+-- Initialization function for this job file. 
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
@@ -74,7 +74,7 @@ end
 
 function user_setup()
 	state.OffenseMode:options('Normal', 'DT', 'Shield', 'ShieldTP', 'SIRD')
-	state.DamageMode = M('Unlocked','Songs','Savage', 'Mordant', 'Blunt', 'Aeolian','Lv.1 Dagger')
+	state.DamageMode = M('Unlocked','Songs','Savage', 'Mordant','Mpu','Blunt', 'Aeolian','Lv.1 Dagger')
     state.WeaponLockMode = M('Unlocked', 'Locked')
     state.IdleMode:options('Normal','Shield','Town','DT', 'SIRD')
 	state.CastingMode:options('Normal', 'TH', 'SIRD', 'Enmity')
@@ -214,13 +214,18 @@ function init_gear_sets()
 		sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},}
 		
 	
+	sets.Mpu = {    
+		 main="Mpu Gandring",
+    	sub="Fusetto +2",}
+
+
 	sets.Savage = {    
 		main="Naegling",
 		sub={ name="Fusetto +2", augments={'TP Bonus +1000',}},}
 	
 	sets.Mordant = {
-	main={ name="Carnwenhan", augments={'Path: A',}},
-	sub={ name="Gleti's Knife", augments={'Path: A',}},
+		main={ name="Carnwenhan", augments={'Path: A',}},
+		sub={ name="Gleti's Knife", augments={'Path: A',}},
 	}
 
 	sets.Blunt = {    
@@ -257,7 +262,7 @@ function init_gear_sets()
     right_ear="Alabaster Earring",
     left_ring="Kishar Ring",
     right_ring="Murky Ring",
-    back="Fi Follet Cape +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
 
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
@@ -391,6 +396,24 @@ sets.precast.WS['Wasp Sting'] = {
 	
 	sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS)
 
+	sets.precast.WS['Ruthless Stroke'] = {
+    main="Mpu Gandring",
+    sub="Fusetto +2",
+    range={ name="Linos", augments={'Accuracy+12 Attack+12','Weapon skill damage +3%','STR+7',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Bard's Charm +2", augments={'Path: A',}},
+    waist="Kentarch Belt",
+    left_ear="Moonshade Earring",
+    right_ear="Ishvara Earring",
+    left_ring="Ephramad's Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+}
+
 	sets.precast.WS['Mordant Rime'] = {
 		main={ name="Carnwenhan", augments={'Path: A',}},
 		sub="Genmei Shield",
@@ -456,7 +479,7 @@ sets.precast.WS['Wasp Sting'] = {
     body="Fili Hongreline +3",
     hands="Fili Manchettes +3",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +4",
+    feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
     waist="Plat. Mog. Belt",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -536,14 +559,14 @@ sets.precast.WS['Wasp Sting'] = {
     body="Fili Hongreline +3",
     hands="Fili Manchettes +3",
     legs="Fili Rhingrave +3",
-    feet="Brioso Slippers +4",
+    feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
     waist="Luminary Sash",
     left_ear="Regal Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Stikini Ring +1",
-    back="Fi Follet Cape +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
 
 	-- For song defbuffs (accuracy primary, duration secondary)
@@ -569,7 +592,7 @@ sets.precast.WS['Wasp Sting'] = {
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
     left_ring="Kishar Ring",
     right_ring="Eihwaz Ring",
-    back="Fi Follet Cape +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
 	
 	sets.midcast['Goblin Gavotte'] = {
@@ -587,7 +610,7 @@ sets.precast.WS['Wasp Sting'] = {
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
     left_ring="Kishar Ring",
     right_ring="Eihwaz Ring",
-    back="Fi Follet Cape +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
 
 
@@ -600,14 +623,14 @@ sets.precast.WS['Wasp Sting'] = {
 		body="Fili Hongreline +3",
 		hands="Brioso Cuffs +1",
 		legs="Inyanga Shalwar +2",
-		feet="Brioso Slippers +4",
+		feet="Brioso Slippers +3",
 		neck="Mnbw. Whistle +1",
 		waist="Eschan Stone",
 		left_ear="Crep. Earring",
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back="Fi Follet Cape +1",
+		back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 	}
 
 
@@ -628,7 +651,7 @@ sets.precast.WS['Wasp Sting'] = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back="Fi Follet Cape +1",
+		back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 	}
 
 
@@ -649,7 +672,7 @@ sets.precast.WS['Wasp Sting'] = {
 		right_ear="Crep. Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back="Fi Follet Cape +1",
+		back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 	}
 
 
@@ -669,7 +692,7 @@ sets.precast.WS['Wasp Sting'] = {
 		right_ear="Crep. Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back="Fi Follet Cape +1",
+		back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 	}
 
 
@@ -681,14 +704,14 @@ sets.precast.WS['Wasp Sting'] = {
     body="Fili Hongreline +3",
     hands="Brioso Cuffs +1",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +4",
+    feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
     waist="Eschan Stone",
     left_ear="Crep. Earring",
     right_ear="Regal Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Fi Follet Cape +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
 	sets.midcast["Foe Lullaby II"] = {
 	main={ name="Carnwenhan", augments={'Path: A',}},
@@ -698,14 +721,14 @@ sets.precast.WS['Wasp Sting'] = {
     body="Fili Hongreline +3",
     hands="Brioso Cuffs +1",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +4",
+    feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
     waist="Eschan Stone",
     left_ear="Crep. Earring",
     right_ear="Regal Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Fi Follet Cape +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
 	
 
@@ -729,7 +752,7 @@ sets.precast.WS['Wasp Sting'] = {
     body="Fili Hongreline +3",
     hands="Fili Manchettes +3",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +4",
+    feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
     waist="Plat. Mog. Belt",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -746,7 +769,7 @@ sets.precast.WS['Wasp Sting'] = {
 		body="Fili Hongreline +3",
 		hands="Fili Manchettes +3",
 		legs="Inyanga Shalwar +2",
-		feet="Brioso Slippers +4",
+		feet="Brioso Slippers +3",
 		neck="Mnbw. Whistle +1",
 		waist="Plat. Mog. Belt",
 		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -797,7 +820,7 @@ sets.precast.WS['Wasp Sting'] = {
 		right_ear="Trux Earring",
 		left_ring="Provocare Ring",
 		right_ring="Eihwaz Ring",
-		back="Fi Follet Cape +1",
+		back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 	}
 
 	
@@ -932,8 +955,8 @@ sets.precast.WS['Wasp Sting'] = {
     range={ name="Linos", augments={'Accuracy+13 Attack+13','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Bunzi's Hat",
     body="Ashera Harness",
-    hands="Volte Mittens",
-    legs={ name="Telchine Braconi", augments={'Accuracy+17','"Store TP"+6','STR+7 DEX+7',}},
+    hands="Revelation Gauntlets",
+    legs="Revelation Brais"
     feet="Nyame Sollerets",
     neck={ name="Bard's Charm +2", augments={'Path: A',}},
     waist="Reiki Yotai",
@@ -945,13 +968,13 @@ sets.precast.WS['Wasp Sting'] = {
 }
 
 sets.engaged.DT = {
-    main={ name="Malevolence", augments={'INT+7','"Mag.Atk.Bns."+5','"Fast Cast"+3',}},
-    sub="Genmei Shield",
+    main="Carnwenhan",
+    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     range={ name="Linos", augments={'Accuracy+13 Attack+13','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Nyame Helm",
+    head="Bunzi's Hat",
     body="Ashera Harness",
-    hands="Nyame Gauntlets",
-    legs={ name="Telchine Braconi", augments={'Accuracy+17','"Store TP"+6','STR+7 DEX+7',}},
+   	hands="Revelation Gauntlets",
+    legs="Revelation Brais"
     feet="Nyame Sollerets",
     neck={ name="Bard's Charm +2", augments={'Path: A',}},
     waist="Reiki Yotai",
@@ -959,7 +982,7 @@ sets.engaged.DT = {
     right_ear="Alabaster Earring",
     left_ring="Moonlight Ring",
     right_ring="Moonlight Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Damage taken-5%',}},
+    back="Null Shawl",
 }
 
 end
@@ -1254,8 +1277,8 @@ function calculate_duration(spellName, spellMap)
 	if player.equipment.neck == "Aoidos' Matinee" then mult = mult + 0.1 end
 	if player.equipment.body == "Fili Hongreline +3" then mult = mult + 0.1 end
 	if player.equipment.legs == "Mdk. Shalwar +1" then mult = mult + 0.1 end
-	if player.equipment.feet == "Brioso Slippers +4" then mult = mult + 0.1 end
-	if player.equipment.feet == "Brioso Slippers +4" then mult = mult + 0.11 end
+	if player.equipment.feet == "Brioso Slippers +3" then mult = mult + 0.1 end
+	if player.equipment.feet == "Brioso Slippers +3" then mult = mult + 0.11 end
 	
 	if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +3" then mult = mult + 0.1 end
 	if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +3" then mult = mult + 0.1 end
@@ -1600,6 +1623,8 @@ elseif state.DamageMode.value == 'Mordant' then
 	idleSet = set_combine(meleeSet, sets.Mordant)
 elseif state.DamageMode.value == 'Savage' then
 	meleeSet = set_combine(meleeSet, sets.Savage)
+elseif state.DamageMode.value == 'Mpu' then
+	meleeSet = set_combine(meleeSet, sets.Mpu)
 elseif state.DamageMode.value == 'Blunt' then
 	meleeSet = set_combine(meleeSet, sets.Blunt)
 elseif state.DamageMode.value == 'Aeolian' then
@@ -1635,6 +1660,8 @@ function customize_idle_set(idleSet)
 		idleSet = set_combine(idleSet, sets.Mordant)
 	elseif state.DamageMode.value == 'Savage' then
 		idleSet = set_combine(idleSet, sets.Savage)
+	elseif state.DamageMode.value == 'Mpu' then
+		idleSet = set_combine(idleSet, sets.Mpu)	
 	elseif state.DamageMode.value == 'Blunt' then
 		idleSet = set_combine(idleSet, sets.Blunt)
 	elseif state.DamageMode.value == 'Aeolian' then
