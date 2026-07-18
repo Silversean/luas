@@ -507,19 +507,19 @@ function init_gear_sets()
 
 	-- WSD | STR | Accuracy | Attack | High fTP (No Fotia)
 	sets.precast.WS['Savage Blade'] = {
-    main="Naegling",
-    sub={ name="Gleti's Knife", augments={'Path: A',}},
-    range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
-    ammo="Chrono Bullet",
-    head={ name="Nyame Helm", augments={'Path: B',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
+    main={ name="Rostam", augments={'Path: C',}},
+    sub={ name="Rostam", augments={'Path: B',}},
+    range="Compensator",
+    ammo="Living Bullet",
+    head="Nyame Helm",
+    body="Ikenga's Vest",
     hands="Chasseur's Gants +3",
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},
+    legs="Nyame Flanchard",
+    feet="Lanun Bottes +4",
     neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    waist="Sailfi Belt +1",
     left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Moonshade Earring",
     left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}},
@@ -764,19 +764,18 @@ function init_gear_sets()
 
 	sets.engaged.DT = {
     range="Anarchy +2",
-    ammo="Chrono Bullet",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Chas. Culottes +3",
     feet="Nyame Sollerets",
     neck="Iskur Gorget",
-    waist="Windbuffet Belt +1",
+    waist="Sailfi Belt +1",
     left_ear="Cessance Earring",
     right_ear="Dedition Earring",
     left_ring="Epona's Ring",
-    right_ring="Defending Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}},
+    right_ring="Petrov Ring",
+    back="Null Shawl",
 }
 	-- 25~26% Gear Haste | 9~11 Dual Wield | Multi-Attack | Store-TP | Accuracy | "Some" DT
 	sets.engaged.HasteCap = {
@@ -800,22 +799,19 @@ function init_gear_sets()
 	
 	-- ~50% PDT/MDT | 25~26% Gear Haste | 10 DW If you can manage | Multi-Attack | Store-TP | Accuracy
 	sets.engaged.HasteCap.DT = {
-    main="Kustawi +1",
-    sub="Nusku Shield",
-    range="Compensator",
-    ammo="Living Bullet",
+    range="Anarchy +2",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Chas. Culottes +3",
     feet="Nyame Sollerets",
-    neck="Loricate Torque +1",
-    waist="Windbuffet Belt +1",
-    left_ear="Suppanomimi",
-    right_ear="Telos Earring",
-    left_ring="Petrov Ring",
-    right_ring="Epona's Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}},
+    neck="Iskur Gorget",
+    waist="Sailfi Belt +1",
+    left_ear="Cessance Earring",
+    right_ear="Dedition Earring",
+    left_ring="Epona's Ring",
+    right_ring="Petrov Ring",
+    back="Null Shawl",
 }
 
 	sets.engaged.HasteCap.Acc = {

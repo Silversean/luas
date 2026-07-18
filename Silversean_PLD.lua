@@ -716,7 +716,10 @@ sets.engaged.EnmityRetention = {
 	
 	sets.Dyna_RP_Farm = {neck={ name="Kgt. Beads +2", augments={'Path: A',}},}
 	
-	sets.Doom = {}
+	sets.Doom = {left_ring="Blenmot's Ring +1",
+		right_ring="Blenmot's Ring +1",
+        waist="Gishdubar Sash",
+        neck="Nicander's Necklace",}
 	
 --===============================================================================--		
 -- __        __                                               _      _   _   _   --
@@ -1148,7 +1151,7 @@ sets.engaged.EnmityRetention = {
     sub="Priwen",
     ammo="Sapience Orb",
     head={ name="Odyssean Helm", augments={'"Blood Pact" ability delay -3','Accuracy+10','Phalanx +4',}},
-    body={ name="Yorium Cuirass", augments={'DEF+24','Spell interruption rate down -10%','Phalanx +3',}},
+    body={ name="Odyss. Chestplate", augments={'DEX+10','Magic Damage +9','Phalanx +4',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Sakpata's Cuisses",
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},

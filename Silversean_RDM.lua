@@ -107,7 +107,7 @@ how to make this context box draggable.]]
 
 function user_setup()
 	state.OffenseMode:options('Normal', 'DT', 'Shield', 'ShieldTP', 'Enspell', 'NoDW', 'TH')
-	state.DamageMode = M('Unlocked','Shikargar','Crocea', 'Savage', 'Excalibur', 'Blunt', 'Aeolian','Lv.1 Dagger')
+	state.DamageMode = M('Unlocked','Mpu','Crocea', 'Savage', 'Excalibur', 'Blunt', 'Aeolian','Lv.1 Dagger')
     state.WeaponLockMode = M('Unlocked', 'Locked')
     state.IdleMode:options('Normal','Town','DT', 'Shield', 'Aminon')
 	state.CastingMode:options('Normal', 'Burst', 'SIRD', 'Occult')
@@ -221,8 +221,9 @@ function init_gear_sets()
 		main="Crocea Mors",
 		sub="Daybreak",}
 	
-	sets.Shikargar = {
-		main="Nitric baselard",}
+	sets.Mpu = {
+		main="Mpu Gandring",
+		sub="Archduke's Shield",}
 		
 	
 	sets.Savage = {    
@@ -827,18 +828,18 @@ sets.Gravity = {
 }
     
 sets.midcast['Elemental Magic'].Occult = {
-    main="Maxentius",
-    sub="Ammurapi Shield",
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Archduke's Shield",
     ammo="Aurgelmir Orb",
     head="Welkin Crown",
-    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+2','"Occult Acumen"+10','MND+4',}},
-    hands={ name="Merlinic Dastanas", augments={'"Mag.Atk.Bns."+6','"Occult Acumen"+11','CHR+7',}},
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
     legs="Perdition Slops",
     feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+20','"Occult Acumen"+11',}},
-    neck="Bathy Choker +1",
+    neck="Ainia Collar",
     waist="Oneiros Rope",
     left_ear="Dedition Earring",
-    right_ear="Chirich Ring +1",
+    right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Chance of successful block +5',}},
@@ -902,22 +903,22 @@ sets.midcast['Elemental Magic'].Occult = {
 
 
     sets.midcast.Drain = {
-		main={ name="Rubicundity", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+9','Dark magic skill +8','"Conserve MP"+6',}},
-		sub="Ammurapi Shield",
-		range="Ullr",
-		head="Pixie Hairpin +1",
-		body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+26','"Drain" and "Aspir" potency +11','MND+9',}},
-		hands="Leth. Ganth. +3",
-		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+16 "Mag.Atk.Bns."+16','"Drain" and "Aspir" potency +10','INT+3','"Mag.Atk.Bns."+5',}},
-		feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+13','"Drain" and "Aspir" potency +11','Mag. Acc.+11',}},
-		neck="Erra Pendant",
-		waist="Fucho-no-Obi",
-		left_ear="Malignance Earring",
-		right_ear="Regal Earring",
-		left_ring="Evanescence Ring",
-		right_ring="Archon Ring",
-		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
-	}
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Archduke's Shield",
+    range="Ullr",
+    head="Pixie Hairpin +1",
+    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+26','"Drain" and "Aspir" potency +11','MND+9',}},
+    hands="Leth. Ganth. +3",
+    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+16 "Mag.Atk.Bns."+16','"Drain" and "Aspir" potency +10','INT+3','"Mag.Atk.Bns."+5',}},
+    feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+13','"Drain" and "Aspir" potency +11','Mag. Acc.+11',}},
+    neck="Erra Pendant",
+    waist="Fucho-no-Obi",
+    left_ear="Malignance Earring",
+    right_ear="Regal Earring",
+    left_ring="Evanescence Ring",
+    right_ring="Archon Ring",
+    back="Null Shawl",
+}
 	
     sets.midcast.Aspir = sets.midcast.Drain
 		
@@ -1342,6 +1343,24 @@ sets.midcast['Elemental Magic'].Occult = {
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 		
+	sets.precast.WS['Ruthless Stroke'] = {
+    main="Mpu Gandring",
+    sub="Archduke's Shield",
+    ammo="Crepuscular Pebble",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Malignance Gloves",
+    legs="Nyame Flanchard",
+    feet="Leth. Houseaux +3",
+    neck={ name="Dls. Torque +2", augments={'Path: A',}},
+    waist="Kentarch Belt",
+    left_ear="Moonshade Earring",
+    right_ear="Ishvara Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+}
+		
 	sets.precast.WS['True Strike'] = {
 		main="Kaja Rod",
 		sub="Tauret",
@@ -1359,8 +1378,7 @@ sets.midcast['Elemental Magic'].Occult = {
 		right_ring="Rufescent Ring",
 		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},}
 		
-	sets.precast.WS['Black Halo'] =  {
-    ammo="Crepuscular Pebble",
+	sets.precast.WS['Black Halo'] =  {ammo="Oshasha's Treatise",
     head="Viti. Chapeau +4",
     body="Nyame Mail",
     hands="Atro. Gloves +4",
@@ -1371,7 +1389,7 @@ sets.midcast['Elemental Magic'].Occult = {
     left_ear="Moonshade Earring",
     right_ear="Regal Earring",
     left_ring="Ephramad's Ring",
-    right_ring="Sroda Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	
@@ -1523,21 +1541,23 @@ sets.midcast['Elemental Magic'].Occult = {
 
 	sets.Adoulin = {body="Councilor's Garb"}
 
-    sets.idle.Normal = {ammo="Homiliary",
+    sets.idle.Normal = {
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Archduke's Shield",
+    ammo="Homiliary",
     head="Null Masque",
     body="Lethargy Sayon +3",
-    hands="Leth. Ganth. +3",
-    legs="Nyame Flanchard",
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    neck="Rep. Plat. Medal",
-    waist="Carrier's Sash",
+    hands="Volte Gloves",
+    legs="Volte Brais",
+    feet="Nyame Sollerets",
+    neck="Loricate Torque +1",
+    waist="Flume Belt +1",
     left_ear="Dominance Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Roller's Ring",
-    right_ring="Defending Ring",
-    back="Shadow Mantle",
+    right_ear="Alabaster Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 }
-
 	sets.Hippomenes = set_combine(idleSet, {feet = "Hippo. Socks +1"})
 
 	sets.latent_refresh = {waist="Fucho-no-obi"}	
@@ -1825,18 +1845,18 @@ sets.idle.DT = {
 	
 	sets.engaged.NoDW = {
     main={ name="Crocea Mors", augments={'Path: C',}},
-    sub="Sacro Bulwark",
+    sub="Archduke's Shield",
     ammo="Aurgelmir Orb",
     head="Bunzi's Hat",
     body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
+    hands="Bunzi's Gloves",
+    legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Anu Torque",
     waist="Windbuffet Belt +1",
     left_ear="Sherida Earring",
     right_ear="Dedition Earring",
-    left_ring="Chirich Ring +1",
+    left_ring="Petrov Ring",
     right_ring="Chirich Ring +1",
     back="Null Shawl",
 }
@@ -2345,8 +2365,8 @@ function customize_melee_set(meleeSet)
 
 	if state.DamageMode.value == 'Unlocked' then
 		meleeSet = set_combine(meleeSet, sets.Unlocked)
-	elseif state.DamageMode.value == 'Shikargar' then
-		meleeSet = set_combine(meleeSet, sets.Shikargar)
+	elseif state.DamageMode.value == 'Mpu' then
+		meleeSet = set_combine(meleeSet, sets.Mpu)
 	elseif state.DamageMode.value == 'Crocea' then
 		meleeSet = set_combine(meleeSet, sets.Crocea)
 	elseif state.DamageMode.value == 'Savage' then
@@ -2415,8 +2435,8 @@ function customize_idle_set(idleSet)
 	
 		if state.DamageMode.value == 'Unlocked' then
 		idleSet = set_combine(idleSet, sets.Unlocked)
-	elseif state.DamageMode.value == 'Shikargar' then
-		idleSet = set_combine(idleSet, sets.Shikargar)
+	elseif state.DamageMode.value == 'Mpu' then
+		idleSet = set_combine(idleSet, sets.Mpu)
 	elseif state.DamageMode.value == 'Crocea' then
 		idleSet = set_combine(idleSet, sets.Crocea)
 	elseif state.DamageMode.value == 'Savage' then
